@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <small class="mr-3">ROOM {{movieToShow.room}}</small> <h6>{{movieToShow.title | uppercase}}</h6>
+  </div>
+  <div class="row pt-2">
+    <div class="col-4">
+      <img [src]="movieToShow.poster" [alt]="movieToShow.title" style="width:100%;">
+      <button class="btn btn-primary btn-block mt-3" (click)="goBack()">Go back</button>
+    </div>
+
+    <div class="col-8">
+      <div class="row pt-2">
+        <div class="col 2">
+          Genres: 
+        </div>
+        <div class="col-10">
+          <ul>
+            <li *ngFor="let item of movieToShow.genres">
+              {{item}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col 2">
+          Year: 
+        </div>
+        <div class="col-10">
+          {{movieToShow.year}}
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col 2">
+          Director: 
+        </div>
+        <div class="col-10">
+          {{movieToShow.director}}
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col 2">
+          Actors:
+          
+        </div>
+        <div class="col-10">
+          <ul>
+            <li *ngFor="let actor of movieToShow.actors">
+              {{actor}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col 2">
+          Schedule:
+        </div>
+        <div class="col-10">
+          <ul>
+            <li *ngFor="let hour of movieToShow.hours">
+              {{hour}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col 2">
+          Synopsis:
+        </div>
+        <div class="col-10">
+          {{movieToShow.synopsis}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
