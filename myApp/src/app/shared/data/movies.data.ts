@@ -21,7 +21,8 @@ const movies: Array<Film>= [
         ],
         hours: ['22:00', '23:00'],
         room: 1
-    }, {
+    },
+     {
         id: 3,
         title: "The Godfather Part II",
         poster: "https://i.imgur.com/abJNkWI.jpg",

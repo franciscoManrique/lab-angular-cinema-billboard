@@ -1,0 +1,18 @@
+<p style="color:red;">pattern coming from header without observable:    {{patternWithSnapshot}}</p>
+<p style="color:red;">pattern coming from header instantaneous with observables:    {{patternWithObservable}}</p>
+
+<input type="text"[(ngModel)]="patternSameComponent">
+<p style="color:red;">pattern in same component always instantaneous:    {{patternSameComponent}}</p>
+
+<div class="container">
+  <div class="row">
+    <div class="card" *ngFor="let movie of movies " style="cursor:pointer; width: 15rem;" (click)="onClickGoToMovieComponent(movie.id)">
+      <h6 class="text-center">ROOM {{movie.room}}</h6>
+      <img class="card-img-top" [src]="movie.poster" alt="Card image cap">
+      <small class="text-center">{{movie.title | uppercase}}</small>
+      <button class="btn btn-danger btn-block mt-3" (click)="onDeleteMovie()">Delete</button>
+      <div class="card-body">
+      </div>
+    </div>
+  </div>
+</div>

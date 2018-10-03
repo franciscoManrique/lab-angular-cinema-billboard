@@ -11,16 +11,12 @@
         <a class="nav-link" [routerLink]="['/movie', id]">Movie</a>
         
       </li> -->
-      <form (ngSubmit)="submitForm(movieValue)" #form="ngForm">
-        <div class="form-group">
-          <input type="email" required name="input" class="form-control" #movie="ngModel" [(ngModel)]="movieValue">
-        </div> 
-        <button type="submit" class="btn btn-block"
-        [disabled]="!form.valid"
-        [class.btn-danger]="!form.valid"
-        [class.btn-success]="form.valid"
-        >Find</button>
-      </form>
+      <div class="form-group">
+        <!-- <input type="email" name="input" class="form-control" #movie="ngModel" [(ngModel)]="pattern" [routerLink]="['/movies/search', pattern]"> -->
+        <input type="email" name="input" class="form-control" #movie="ngModel" [(ngModel)]="pattern" (keyup)="searchmovie(pattern)">
+      </div>
     </ul>
   </div>
 </nav>
+
+

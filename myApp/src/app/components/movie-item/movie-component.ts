@@ -5,19 +5,20 @@ import { MoviesService } from '../../shared/services/movies.service';
 
 @Component({
   selector: 'app-my-movie',
-  templateUrl: './my-movie-component.html',
+  templateUrl: './movie-component.html',
 })
 export class MyMovieComponent implements OnInit {
   idMovie: number;
   movieToShow: Film;
-
+  pattern:string = '';
+  
   constructor(private route: ActivatedRoute, private router: Router, private service: MoviesService) { }
   
-  ngOnInit() {        
+  ngOnInit() {     
     this.idMovie = Number(this.route.snapshot.paramMap.get('id'));        
-    this.movieToShow =  this.service.getMovie(this.idMovie);
+    this.movieToShow = this.service.getMovie(this.idMovie);
   }
-
+  
   goBack(){
     this.router.navigate(['/home']);
   }

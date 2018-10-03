@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { MoviesService } from '../../../shared/services/movies.service';
 import { Film } from '../../../shared/models/movie.model';
 import { Router } from '@angular/router';
@@ -9,16 +9,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {  
   movieToFind:Film;
-
+  pattern: string = '';
   constructor(private service: MoviesService, private router:Router) { }
   
   ngOnInit() {
-    
+  
   }
-  submitForm(movie:string):void{
-    this.movieToFind = this.service.findMovie(movie)[0];
-    this.router.navigate([`/movie/${this.movieToFind.id}`]);    
+  
+  searchmovie(pattern:string){
+    this.router.navigate([`/movies/search/${pattern}`]);
   }
   
 }
+
 

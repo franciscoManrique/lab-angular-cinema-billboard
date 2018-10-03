@@ -18,8 +18,15 @@ export class MoviesService{
     return this.movies.filter(m => m.id === id)[0];
   }
   
-  findMovie(pattern:string):Array<Film>{
-    const regex = new RegExp(pattern, 'i');
-    return this.movies.filter(m => m.title.match(regex));  
+  findMovieByPattern(pattern:string):any{ 
+    console.log(pattern);
+    
+    if (!pattern) {            
+      return this.movies;
+    } else{      
+      const regex = new RegExp(pattern, 'i');    
+      return this.movies.filter(m => m.title.match(regex)); 
+    }    
   }
+  
 }
